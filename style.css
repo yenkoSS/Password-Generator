@@ -37,6 +37,23 @@ body {
 
 }
 
+@media screen and (max-width: 768px) {
+    .container {
+        width:500px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        width:350px;
+        padding:30px;
+    }
+
+    .heading {
+        font-size:20px;
+    }
+}
+
 form {
     margin-top:60px;
 }

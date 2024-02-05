@@ -10,17 +10,17 @@ const isEmpty = (value) => (value === '') ? true : false;
 const isNumber = (value) => isNaN(value) ? false : true;
 const isBetween = (value) => value >= 12 && value <= 30 ? true : false;
 
-function isValid (passwordLenght) {
+function isValid (passwordLength) {
 
 
-    if (isEmpty(passwordLenght)) {
-        showError('You must enter password lenght.')
+    if (isEmpty(passwordLength)) {
+        showError('You must enter password length.')
         return
-    } else if (!isNumber(passwordLenght)) {
-        showError('Not a valid number!')
+    } else if (!isNumber(passwordLength)) {
+        showError('Invalid number.')
         return
-    } else if (!isBetween(passwordLenght)) {
-        showError('Password lenght must be between 12 and 30') 
+    } else if (!isBetween(passwordLength)) {
+        showError('Password length must be between 12 and 30.') 
         return
     } else {
         return true
@@ -32,7 +32,7 @@ function showError (message) {
     errorEl.textContent = message;
 }
 
-function generatePassword(lenght, useNumbers, useSymbols) {
+function generatePassword(length, useNumbers, useSymbols) {
     const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     const numChars = '012345689';
     const symbols = '!@#$%^&*()_+{}:<>,.?';
@@ -40,7 +40,7 @@ function generatePassword(lenght, useNumbers, useSymbols) {
 
     if (!useNumbers && !useSymbols) {
 
-        for (let i=0; i<= lenght; i++) {
+        for (let i=0; i<= length; i++) {
             randomNumber = Math.floor(Math.random() * letters.length)
             password += letters.substring(randomNumber, randomNumber +1)
         }
@@ -50,7 +50,7 @@ function generatePassword(lenght, useNumbers, useSymbols) {
     } else if (useNumbers && !useSymbols) {
         const chars = letters + numChars;
 
-        for (let i=0; i<= lenght; i++) {
+        for (let i=0; i<= length; i++) {
             randomNumber = Math.floor(Math.random() * chars.length)
             password += chars.substring(randomNumber, randomNumber +1);
         }
@@ -60,7 +60,7 @@ function generatePassword(lenght, useNumbers, useSymbols) {
     } else if (useSymbols && !useNumbers) {
         const chars = letters + symbols;
 
-        for (let i=0; i<= lenght; i++) {
+        for (let i=0; i<= length; i++) {
             randomNumber = Math.floor(Math.random() * chars.length)
             password += chars.substring(randomNumber, randomNumber +1);
         }
@@ -69,7 +69,7 @@ function generatePassword(lenght, useNumbers, useSymbols) {
     } else if (useNumbers && useSymbols) {
         const chars = letters + symbols + numChars;
 
-        for (let i=0; i<= lenght; i++) {
+        for (let i=0; i<= length; i++) {
             randomNumber = Math.floor(Math.random() * chars.length)
             password += chars.substring(randomNumber, randomNumber +1);
         }
@@ -81,14 +81,14 @@ function generatePassword(lenght, useNumbers, useSymbols) {
 btnGenerateEl.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const passwordLenght = passwordLengthEl.value;
+    const passwordLength = passwordLengthEl.value;
     const useNumbers = checkboxNumbersEl.checked;
     const useSymbols = checkboxSymbolsEl.checked;
-    const isFormValid = isValid(passwordLenght);
+    const isFormValid = isValid(passwordLength);
 
     if (isFormValid) {
         errorEl.textContent = ''     
-        password = generatePassword(passwordLenght, useNumbers, useSymbols);
+        password = generatePassword(passwordLength, useNumbers, useSymbols);
         generatePasswordEl.textContent = password
     }
 })
