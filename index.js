@@ -5,6 +5,8 @@ const checkboxNumbersEl = document.querySelector('.checkbox-numbers');
 const containerEl = document.querySelector('.container')
 const generatePasswordEl = document.querySelector('.generated-password')
 const errorEl = document.querySelector('.error')
+const btnCopyEl = document.querySelector('.btn-copy');
+const textCopiedEl = document.querySelector('.text-copied');
 
 const isEmpty = (value) => (value === '') ? true : false;
 const isNumber = (value) => isNaN(value) ? false : true;
@@ -85,11 +87,20 @@ btnGenerateEl.addEventListener('click', (e) => {
     const useNumbers = checkboxNumbersEl.checked;
     const useSymbols = checkboxSymbolsEl.checked;
     const isFormValid = isValid(passwordLength);
+    textCopiedEl.classList.add('hidden');
 
     if (isFormValid) {
         errorEl.textContent = ''     
         password = generatePassword(passwordLength, useNumbers, useSymbols);
         generatePasswordEl.textContent = password
+        btnCopyEl.classList.remove('hidden')
     }
+})
+
+
+btnCopyEl.addEventListener('click', ()=> {
+    const password = document.querySelector('.generated-password').textContent
+    navigator.clipboard.writeText(password)
+    textCopiedEl.classList.remove('hidden');
 })
 

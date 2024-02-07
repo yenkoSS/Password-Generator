@@ -37,25 +37,10 @@ body {
 
 }
 
-@media screen and (max-width: 768px) {
-    .container {
-        width:500px;
-    }
-}
-
-@media screen and (max-width: 576px) {
-    .container {
-        width:350px;
-        padding:30px;
-    }
-
-    .heading {
-        font-size:20px;
-    }
-}
-
 form {
     margin-top:60px;
+    border-top:1px solid rgba(0, 0, 0, 0.205);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.205);
 }
 
 .input-box {
@@ -75,6 +60,9 @@ form {
 }
 
 .btn-generate {
+    display:block;
+    color:black;
+    width:100%;
     padding:15px;
     background-color:greenyellow;
     border:none;
@@ -96,5 +84,77 @@ form {
 
 .error {
     font-size:12px;
+    margin-bottom: 10px;;
     color:red;
+}
+
+.text-muted {
+    font-size:14px;
+    color:rgba(0, 0, 0, 0.568);
+    letter-spacing: .5px;
+    margin-top:20px;
+}
+
+.text-copied {
+    color:green;
+    font-size:18px;
+    letter-spacing: 2px;
+    margin-top:20px;
+}
+
+.generated-password {
+    font-size:20px;
+    letter-spacing: 1px;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+
+.btn-copy {
+    padding-right:20px;
+    padding-left:20px;
+    padding-top:10px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border:none;
+    border-radius:5px;
+    background-color: rgb(0, 139, 12);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    color:white;
+    font-size:12px;
+    transition: all 0.2s;
+}
+
+.btn-copy:hover {
+    transform: scale(1.02);
+}
+
+.btn-copy:active {
+    transform: scale(0.98)
+}
+
+.hidden {
+    display: none;
+}
+
+@media screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+    .container {
+        width:500px;
+    }
+}
+
+@media screen and (max-width: 576px) and (-webkit-min-device-pixel-ratio: 1) {
+    .container {
+        width:350px;
+        padding:30px;
+    }
+
+    .heading {
+        font-size:20px;
+    }
+
+    .generated-password {
+        font-size:15px;
+        letter-spacing: .5px;
+    }
 }

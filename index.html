@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Password Generator</title>
     <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
   </head>
   <body>
     <div class="container">
@@ -14,15 +13,15 @@
         <form>
             <div class="input-box">
                 <label for="form-input" class="form-label">Enter password length:</label>
-                <input type="text" class="form-input" >
+                <input type="text" class="form-input" value='12'>
             </div>
             <div class="input-box">
                 <label for="" class="form-label">Symbols</label> 
-                <input type="checkbox" class="checkbox-symbols">
+                <input type="checkbox" class="checkbox-symbols" checked="true">
             </div>
             <div class="input-box">
                 <label for="" class="form-label">Numbers</label> 
-                <input type="checkbox" class="checkbox-numbers">
+                <input type="checkbox" class="checkbox-numbers" checked="true">
             </div>
             <button type="submit" class="btn-generate">Generate</button>         
         </form>
@@ -30,6 +29,8 @@
             <p class="generated-password"></p>
         </div>
         <p class='error'></p>
+        <button class="btn-copy hidden">Copy</button>
+        <p class="text-copied hidden">Copied!</p>
     </div>
 	<script src="index.js"></script>
   </body>
